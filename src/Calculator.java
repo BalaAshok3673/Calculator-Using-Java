@@ -46,7 +46,7 @@ public class Calculator{
         System.out.print(message + " ");
         while (!scanner.hasNextInt()) {
             System.out.println("Invalid input. Please enter a valid integer:");
-            scanner.next(); 
+            scanner.next();
         }
         return scanner.nextInt();
     }
@@ -57,6 +57,36 @@ public class Calculator{
         MULTIPLY,
         DIVIDE
     }
+
+    public void start() {
+        boolean exit = false;
+        while (!exit) {
+            displayMenu();
+            String choice = scanner.nextLine().trim().toLowerCase();
+
+            switch (choice) {
+                case "1":
+                    calculate(Operation.ADD);
+                    break;
+                case "2":
+                    calculate(Operation.SUBTRACT);
+                    break;
+                case "3":
+                    calculate(Operation.MULTIPLY);
+                    break;
+                case "4":
+                    calculate(Operation.DIVIDE);
+                    break;
+                case "5":
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number from 1 to 5.");
+            }
+        }
+        System.out.println("Calculator closed.");
+        scanner.close();
+    }
 }
     
-}
+

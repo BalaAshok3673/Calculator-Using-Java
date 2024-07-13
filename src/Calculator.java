@@ -44,11 +44,11 @@ public class Calculator{
 
     private int getIntInput(String message) {
         System.out.print(message + " ");
-        while (!scanner.hasNextInt()) {
+        while (!sc.hasNextInt()) {
             System.out.println("Invalid input. Please enter a valid integer:");
-            scanner.next();
+            sc.next();
         }
-        return scanner.nextInt();
+        return sc.nextInt();
     }
 
     private enum Operation {
@@ -62,7 +62,7 @@ public class Calculator{
         boolean exit = false;
         while (!exit) {
             displayMenu();
-            String choice = scanner.nextLine().trim().toLowerCase();
+            String choice = sc.nextLine().trim().toLowerCase();
 
             switch (choice) {
                 case "1":
@@ -85,7 +85,7 @@ public class Calculator{
             }
         }
         System.out.println("Calculator closed.");
-        scanner.close();
+        sc.close();
     }
 }
     
